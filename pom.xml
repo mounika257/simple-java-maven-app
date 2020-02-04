@@ -34,4 +34,14 @@
       </plugin>
     </plugins>
   </build>
+  <distributionManagement>
+<repository>
+			<id>repoR</id>
+			<url>http://localhost:8081/nexus/content/repositories/2/</url>
+		</repository>
+		<snapshotRepository>
+			<id>repoS</id>
+			<url>http://localhost:8081/nexus/content/repositories/3/</url>
+		</snapshotRepository>		
+  </distributionManagement>
 </project>
