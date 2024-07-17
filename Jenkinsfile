@@ -76,14 +76,6 @@ pipeline{
                 when { expression {parameters.action == 'create'}}
                 steps{
                     script{
-                        
-                    }
-                }
-            }  
-            stage (''){
-                when { expression {parameters.action == 'create'}}
-                steps{
-                    script{
                         dockerImageScan("${params.ImageName}","${params.ImageTag}","${params.DockerHubUser}")
                     }
                 }
