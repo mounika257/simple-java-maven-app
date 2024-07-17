@@ -44,7 +44,7 @@ pipeline{
                         statiCodeAnalysis(SonarQubecredentialsId)
                     }
                 }
-            },     
+            }     
             stage ('Quality Gate Status Check : Sonarqube'){
                 when{
                   expression { parameters.action == 'create'}
@@ -55,7 +55,7 @@ pipeline{
                        QualityGateStatus(SonarQubecredentialsId)
                     }
                 }
-            },      
+            }      
             stage ('Maven Build: build'){
                 when { expression {parameters.action == 'create'}}
                 steps{
