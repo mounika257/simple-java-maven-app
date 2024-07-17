@@ -27,7 +27,7 @@ pipeline{
                     mvnTest()
                     }
                 }
-            },
+            }
             stage ('Integration Test maven'){
                 when { expression { parameters.action == 'create'}}
                 steps{
@@ -35,7 +35,7 @@ pipeline{
                     mvnIntegrationTest()
                     }
                 }
-            },
+            }
             stage ('Static code analysis: Sonarqube'){
                 when { expression {parameters.action == 'create'}}
                 steps{
@@ -63,7 +63,7 @@ pipeline{
                         mvnBuild()
                     }
                 }
-            },  
+            }
             stage ('Docker image build'){
                 when { expression {parameters.action == 'create'}}
                 steps{
@@ -71,7 +71,7 @@ pipeline{
                         docker build("${params.ImageName}","${params.ImageTag}","${params.DockerHubUser}")
                     }
                 }
-            },  
+            } 
             stage ('Docker Image Scan: trivy'){
                 when { expression {parameters.action == 'create'}}
                 steps{
@@ -79,7 +79,7 @@ pipeline{
                         
                     }
                 }
-            },  
+            }  
             stage (''){
                 when { expression {parameters.action == 'create'}}
                 steps{
