@@ -19,7 +19,7 @@ pipeline{
                         url: 'https://github.com/mounika257/simple-java-maven-app.git'
                     )
                 }
-            },
+            }
             stage ('maven test'){
                 when { expression { parameters.action == 'create'}}
                 steps{
